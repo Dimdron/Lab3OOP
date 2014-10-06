@@ -20,6 +20,8 @@ public:
     MainWindow& operator<<(Window* child);
     Window& operator[] (int i);
 
+    static const int minWidth = 15;
+    static const int minHeight = 8;
     static const int maxWidth = 79;
     static const int maxHeight = 25;
 

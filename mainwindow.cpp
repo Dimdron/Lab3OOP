@@ -1,8 +1,10 @@
 #include "mainwindow.h"
 
 MainWindow::MainWindow()
-    :MainWindow(minWidth, minHeight)
+    : ResizableWindow()
 {
+    setWidth(minWidth);
+    setHeight(minHeight);
 }
 
 MainWindow::MainWindow(int xpos, int ypos, const std::string &windowName,
