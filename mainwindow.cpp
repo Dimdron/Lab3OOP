@@ -25,18 +25,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::draw()
 {
-//    char* window = getCanvas();
-//    const int h_ = getHeight();
-//    const int w_ = getWidth();
-//    for(auto i = subwindows->begin(); i != subwindows->end(); ++i)
-//    addWindow(window, &(*i));
-//    for (int h = 0; h  <h_; h++)
-//    {
-//        for (int w = 0; w < w_; w++)
-//            putchar(*(window + h*w_ + w));
-//        putchar('\n');
-//    }
-//    delete [] window;
+    auto canvas = getCanvas();
+
+    for(auto i = subwindows.begin(); i != subwindows.end(); ++i)
+        drawChildWindow(canvas, *i);
+
+    for (int h = 0; h  < height; ++h)
+    {
+        for (int w = 0; w < width; ++w)
+            putchar(canvas[(h * width) + w]);
+        putchar('\n');
+    }
 }
 
 void MainWindow::drawChildWindow(ResizableWindow::canvas_type &canvas, ResizableWindow *child)
