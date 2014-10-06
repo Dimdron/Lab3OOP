@@ -39,7 +39,7 @@ void MainWindow::draw()
 //    delete [] window;
 }
 
-void MainWindow::addWindow(char* mainWindow, Window* child)
+void MainWindow::drawChildWindow(ResizableWindow::canvas_type &canvas, ResizableWindow *child)
 {
 //    char* childCanvas = child->getCanvas();
 //    int const m_h = getHeight(), m_w = getWidth();

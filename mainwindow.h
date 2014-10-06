@@ -27,7 +27,7 @@ public:
 
 protected:
     children_container subwindows;
-    void addWindow(char* mainWindow, Window* child);
+    void drawChildWindow(ResizableWindow::canvas_type &canvas, ResizableWindow *child);
 };
 
 #endif // MAINWINDOW_H
