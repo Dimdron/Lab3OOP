@@ -18,4 +18,4 @@ HEADERS += \
     menu.h \
     mainwindow.h
 
-LIBS += -Lbuild/ -lWindowsLib
+LIBS += -L$$PWD/build -lWindowsLib
