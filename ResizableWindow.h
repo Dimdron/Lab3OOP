@@ -1,19 +1,30 @@
 #pragma once
-class ResizableWindow
+#include "window.h"
+#include <vector>
+
+class ResizableWindow : public Window
 {
-private:
-    int width;
-	int height;
-    //virtual void onChangedSize(int wigth, int height) {}
 public:
-    ResizableWindow(int w, int h);
+    typedef std::vector<char> canvas_type;
+
+    ResizableWindow();
+    ResizableWindow(int xpos, int ypos, const std::string &windowName,
+                    int windowWidth, int windowHeight);
+    ResizableWindow(const ResizableWindow &window);
 	~ResizableWindow();
 
-	void setWidth(int width);
-	int getWidth();
-	void setHeight(int height);
-	int getHeight();
+    int getWidth() const;
+    int getHeight() const;
+
+    void setWidth(int windowWidth);
+    void setHeight(int windowHeight);
 
     void changeSize(int dw, int dh);
+
+    canvas_type getCanvas() const;
+
+protected:
+    int width;
+    int height;
 };
 

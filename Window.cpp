@@ -1,87 +1,63 @@
-#include "Window.h"
+#include "window.h"
 
 
-Window::Window(int w, int h)
-    :ResizableWindow(w, h)
+Window::Window()
+    : x(0), y(0), name()
 {
 }
 
-Window::Window(Window& window)
-    :Window(window.getWidth(), window.getHeight())
+Window::Window(int xpos, int ypos, std::string windowName)
+    : x(xpos), y(ypos), name(windowName)
 {
-    name = new string(window.getName());
-    x = window.getX();
-    y = window.getY();
+}
+
+Window::Window(const Window& window) :
+    x(window.x), y(window.y), name(window.name)
+{
 }
 
 Window::~Window()
 {
 }
 
-std::string Window::getName()
+std::string Window::getName() const
 {
     return name;
 }
 
-void Window::setName(std::string name)
-{
-    this->name = name;
-}
-
-int Window::getX()
+int Window::getX() const
 {
     return x;
 }
 
-int Window::getY()
+int Window::getY() const
 {
     return y;
 }
 
-void Window::setX(int x)
+void Window::setX(int xpos)
 {
-    this->x = x;
+    x = xpos;
 }
 
-void Window::setY(int y)
+void Window::setY(int ypos)
 {
-    this->y = y;
+    y = ypos;
 }
 
-char* Window::getCanvas()
+void Window::setPosition(int xpos, int ypos)
 {
-    const int h_ = getHeight();
-    const int w_ = getWidth();
-    char* window = new char[h_*w_];
-
-    for (int h = 0; h < h_; h++)
-        for (int w = 0; w < w_; w++)
-            if (0 == h || h_ - 1 == h)
-                *(window + h*w_ + w) = '*';
-            else
-                if (0 == w || w_ - 1 == w)
-                    *(window + h*w_ + w) = '*';
-                else
-                    *(window + h*w_ + w) = ' ';
-
-    return window;
+    x = xpos;
+    y = ypos;
 }
 
-void Window::move(int dx, int dy) {
+void Window::setName(const std::string &newName)
+{
+    name = newName;
+}
+
+void Window::move(int dx, int dy)
+{
     x += dx;
     y += dy;
-}
-
-Window& Window::operator= (const Window& window) {
-    if (&window == this) return *this;
-    if (null == name) delete name;
-    if (null != window.name)
-        name = new string(window.name);
-    else
-        name = null;
-
-    x = window.x;
-    y = window.y;
-    setWidth(window.getWidth());
-    setHeight(window.getHeight());
 }

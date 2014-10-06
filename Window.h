@@ -1,30 +1,27 @@
-#include "ResizableWindow.h"
+#pragma once
 #include <string>
 
-class Window : public ResizableWindow
+class Window
 {
-private:
-	int x;
-	int y;
-    std::string name;
-protected:
-
 public:
-    Window(int width, int height, std::string name);
-    Window(int width, int height);
+    Window();
+    Window(int xpos, int ypos, std::string windowName);
     Window(const Window& window);
 	~Window();
 
-    void setName(std::string name);
-    void setX(int x);
-    void setY(int y);
-    void setPosition(int x, int y);
-    void move(int dx, int dy);
-    std::string getName();
-    int getX();
-    int getY();
-    char* getCanvas();
+    int getX() const;
+    int getY() const;
+    std::string getName() const;
 
-    Window& operator= (Window& window);
+    void setX(int xpos);
+    void setY(int ypos);
+    void setPosition(int xpos, int ypos);
+    void setName(const std::string &newName);
+    void move(int dx, int dy);
+
+protected:
+    int x;
+    int y;
+    std::string name;
 };
 

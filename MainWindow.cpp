@@ -1,29 +1,31 @@
-#include "MainWindow.h"
-#include <stdio.h>
-
-using namespace std;
+#include "mainwindow.h"
 
 MainWindow::MainWindow()
-    :MainWindow(MIN_WIDTH, MIN_HEIGHT)
+    :MainWindow(minWidth, minHeight)
 {
 }
 
-MainWindow::MainWindow(int width, int height)
-    : Window(width, height)
+MainWindow::MainWindow(int xpos, int ypos, const std::string &windowName,
+                       int windowWidth, int windowHeight)
+    : ResizableWindow(xpos, ypox, windowName, windowWidth, windowHeight)
 {
-    subwindows = new list<Window>();
+}
+
+MainWindow::MainWindow(const MainWindow &window)
+    : ResizableWindow(window)
+{
+    subwindows = window.subwindows;
 }
 
 MainWindow::~MainWindow()
 {
-    delete subwindows;
 }
 
 void MainWindow::draw() {
     char* window = getCanvas();
     const int h_ = getHeight();
     const int w_ = getWidth();
-    for(list<Window>::iterator i = subwindows->begin(); i != subwindows->end(); ++i)
+    for(auto i = subwindows->begin(); i != subwindows->end(); ++i)
     addWindow(window, &(*i));
     for (int h = 0; h  <h_; h++)
     {
@@ -65,5 +67,5 @@ MainWindow& MainWindow::operator <<(Window* child)
 
 Window& MainWindow::operator[] (int i)
 {
-    return *(subwindows->begin() + i)
+    return subwindows->at(i);
 }

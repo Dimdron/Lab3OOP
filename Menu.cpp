@@ -1,10 +1,9 @@
-#include "Menu.h"
+#include "menu.h"
 #include <iostream>
-#include <list>
 
-Menu::Menu(MainWindow& window)
+Menu::Menu(MainWindow &newWindow)
 {
-    this->window = &window;
+    window(newWindow);
 }
 
 bool Menu::show() {

@@ -1,6 +1,5 @@
-#ifndef MENU_H
-#define MENU_H
-#include "MainWindow.h"
+#pragma once
+#include "mainwindow.h"
 
 class Menu
 {
@@ -15,8 +14,6 @@ private:
     Window* chooseWindow();
 
 public:
-    Menu(MainWindow w);
+    Menu(MainWindow &newWindow);
     void show();
 };
-
-#endif // MENU_H

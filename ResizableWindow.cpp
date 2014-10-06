@@ -1,25 +1,33 @@
-#include "ResizableWindow.h"
+#include "resizablewindow.h"
 
-
-ResizableWindow::ResizableWindow(int w, int h)
+ResizableWindow::ResizableWindow()
+    : Window(), width(0), height(0)
 {
-    width = w;
-    height = h;
 }
 
+ResizableWindow::ResizableWindow(int xpos, int ypos, const std::string &windowName,
+                                 int windowWidth, int windowHeight)
+    : Window(xpos, ypos, windowName), width(windowWidth), height(windowHeight)
+{
+}
+
+ResizableWindow::ResizableWindow(const ResizableWindow &window)
+    : Window(window), width(window.width), height(window.height)
+{
+}
 
 ResizableWindow::~ResizableWindow()
 {
 }
 
-int ResizableWindow::getHeight()
-{
-    return height;
-}
-
-int ResizableWindow::getWidth()
+int ResizableWindow::getWidth() const
 {
     return width;
+}
+
+int ResizableWindow::getHeight() const
+{
+    return height;
 }
 
 void ResizableWindow::changeSize(int dw, int dh) {
@@ -27,16 +35,32 @@ void ResizableWindow::changeSize(int dw, int dh) {
     height += dh;
 }
 
-void ResizableWindow::setHeight(int height)
+void ResizableWindow::setWidth(int windowWidth)
 {
-    if (height == this->height) return;
-    this->height = height;
-    //onChangedSize(width, height);
+    width = windowWidth;
 }
 
-void ResizableWindow::setWidth(int width)
+void ResizableWindow::setHeight(int windowHeight)
 {
-    if (width == this->width) return;
-    this->width = width;
-    //onChangedSize(width, height);
+    height = windowHeight;
+}
+
+canvas_type ResizableWindow::getCanvas() const
+{
+    return canvas_type(width * height);/*
+    const int h_ = getHeight();
+    const int w_ = getWidth();
+    char* window = new char[h_*w_];
+
+    for (int h = 0; h < h_; h++)
+        for (int w = 0; w < w_; w++)
+            if (0 == h || h_ - 1 == h)
+                *(window + h*w_ + w) = '*';
+            else
+                if (0 == w || w_ - 1 == w)
+                    *(window + h*w_ + w) = '*';
+                else
+                    *(window + h*w_ + w) = ' ';
+
+    return window;*/
 }

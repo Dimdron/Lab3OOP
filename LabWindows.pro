@@ -17,14 +17,14 @@ TEMPLATE = app
 
 
 SOURCES += \
-    MainWindow.cpp \
-    ResizableWindow.cpp \
-    Window.cpp \
-    Menu.cpp \
-    Main.cpp
+    main.cpp \
+    mainwindow.cpp \
+    menu.cpp \
+    resizablewindow.cpp \
+    window.cpp
 
 HEADERS += \
-    MainWindow.h \
-    ResizableWindow.h \
-    Window.h \
-    Menu.h
+    mainwindow.h \
+    menu.h \
+    resizablewindow.h \
+    window.h

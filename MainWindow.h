@@ -1,28 +1,27 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
+#include "resizablewindow.h"
 
-#include "ResizableWindow.h"
-#include "Window.h"
-#include <list>
-class MainWindow: public Window
+class MainWindow: public ResizableWindow
 {
-    static const int MIN_WIDTH = 15;
-    static const int MAX_WIDTH = 79;
-    static const int MIN_HEIGHT = 8;
-    static const int MAX_HEIGHT = 25;
-private:
-    std::list<Window>* subwindows;
-    void addWindow(char* mainWindow, Window* child);
 public:
-	MainWindow();
-    MainWindow(int width, int height);
-	~MainWindow();
+    typedef std::vector<Window> children_container;
 
-	void draw();
-    std::list<Window>* getChildren();
+    MainWindow();
+    MainWindow(int xpos, int ypos, const std::string &windowName,
+               int windowWidth, int windowHeight);
+    MainWindow(const MainWindow &window);
+    ~MainWindow();
+
+    void draw();
+    children_container &getChildren();
 
     MainWindow& operator<<(Window* child);
     Window& operator[] (int i);
-};
 
-#endif // MAINWINDOW_H
+    static const int maxWidth = 79;
+    static const int maxHeight = 25;
+
+protected:
+    children_container subwindows;
+    void addWindow(char* mainWindow, Window* child);
+};
