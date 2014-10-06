@@ -2,12 +2,13 @@
 #include <iostream>
 
 Menu::Menu(MainWindow &newWindow)
+    : window(newWindow)
 {
-    window(newWindow);
 }
 
-bool Menu::show() {
-    w->draw();
+bool Menu::show()
+{
+    window.draw();
     std::cout<<std::endl;
     std::cout<<"Choose operation:"<<std::endl;
     std::cout<<"1. Add the window"<<std::endl;
@@ -33,52 +34,60 @@ bool Menu::show() {
     return true;
 }
 
-void Menu::addWindow() {
+void Menu::addWindow()
+{
     std::cout<<"Adding subwindow "<<std::endl;
     std::cout<<"Enter name: "<<std::endl;
-    string name;
+    std::string name;
     std::cin>>name;
-    std::cout<<"Enter position (format: x y):"<<std::endl;
+    std::cout << "Enter position (format: x y):" << std::endl;
     int x = 0, y = 0;
-    std::cin>>x>>y;
-    std::cout<<"Enter size (format: w h):"<<std::endl;
+    std::cin >> x >> y;
+    std::cout << "Enter size (format: w h):" << std::endl;
     int h = 0, w = 0;
-    std::cin>>w>>h;
-    Window* newWindow = new Window(w, h, name);
-    newWindow->setPosition(x, y);
-    window<<newWindow;
+    std::cin >> w >> h;
+    ResizableWindow* newWindow = new ResizableWindow(x, y, name, w, h);
+    window << newWindow;
     std::cout<<"Successful adding"<<std::endl;
 }
 
-void Menu::changePosition() {
-    Window* w = chooseWindow();
+void Menu::changePosition()
+{
+    ResizableWindow* selectedWindow = chooseWindow();
     std::cout<<"Enter the dx and dy: ";
     int dx = 0, dy = 0;
-    std::cin>>dx>>dy;
-    w->move(dx, dy);
+    std::cin >> dx >> dy;
+    selectedWindow->move(dx, dy);
 }
 
 
 void Menu::changeSize() {
-    Window* w = chooseWindow();
+    ResizableWindow* selectedWindow = chooseWindow();
     std::cout<<"Enter the dw and dh: ";
     int dw, dh;
-    std::cin>>dw>>dh;
-    w->changeSize(dw, dh);
+    std::cin >> dw >> dh;
+    selectedWindow->changeSize(dw, dh);
 }
 
-Window* Menu::findWindow(string name) {
-    if (NULL == name) return window;
-    list<Window>* children = window->getChildren();
-    list<Window>::iterator i;
-    for (i = children->begin(); i != children->end(); i++)
-        if ((*i).getName == name)
-            return &(*i);
-    return NULL;
+ResizableWindow* Menu::findWindow(const std::string &name)
+{
+//    if (name.empty())
+//        return static_cast<ResizableWindow*>(window);
+//    else
+//    {
+//        auto children = window.getChildren();
+//        for (auto childWindow = children.begin(); childWindow != children.end(); ++childWindow)
+//        {
+//            if ((*childWindow)->getName() == name)
+//                return *childWindow;
+//        }
+//        return nullptr;
+//    }
 }
 
-Window* Menu::chooseWindow() {
-    string name;
+ResizableWindow* Menu::chooseWindow()
+{
+    std::string name;
     int item;
     std::cout<<"Choose item:"<<std::endl;
     std::cout<<"1. Main window"<<std::endl;
@@ -93,7 +102,7 @@ Window* Menu::chooseWindow() {
         std::cin>>name;
         break;
     default:
-        return null;
+        return nullptr;
     }
     return findWindow(name);
 }

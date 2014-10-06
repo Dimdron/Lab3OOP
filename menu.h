@@ -5,6 +5,10 @@
 
 class Menu
 {
+public:
+    Menu(MainWindow &newWindow);
+    bool show();
+
 private:
     MainWindow window;
 
@@ -12,12 +16,9 @@ private:
     void changeSize();
     void changePosition();
     void addWindow();
-    Window* findWindow(std::string name);
-    Window* chooseWindow();
 
-public:
-    Menu(MainWindow &newWindow);
-    void show();
+    ResizableWindow *findWindow(const std::string &name);
+    ResizableWindow *chooseWindow();
 };
 
 #endif // MENU_H
