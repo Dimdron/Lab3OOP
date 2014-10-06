@@ -7,7 +7,7 @@ MainWindow::MainWindow()
 
 MainWindow::MainWindow(int xpos, int ypos, const std::string &windowName,
                        int windowWidth, int windowHeight)
-    : ResizableWindow(xpos, ypox, windowName, windowWidth, windowHeight)
+    : ResizableWindow(xpos, ypos, windowName, windowWidth, windowHeight)
 {
 }
 
