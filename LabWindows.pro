@@ -1,6 +1,4 @@
-QT       += core
-
-QT       -= gui
+QT       -= core gui
 
 TARGET = LabWindows
 CONFIG   += console
@@ -9,16 +7,15 @@ CONFIG   += c++11
 
 TEMPLATE = app
 
+INCLUDEPATH += WindowsLib
 
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    menu.cpp \
-    resizablewindow.cpp \
-    window.cpp
+    menu.cpp
 
 HEADERS += \
-    mainwindow.h \
     menu.h \
-    resizablewindow.h \
-    window.h
+    mainwindow.h
+
+LIBS += -Lbuild/ -lWindowsLib

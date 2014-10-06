@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
 #include "resizablewindow.h"
 
 class MainWindow: public ResizableWindow
@@ -25,3 +27,5 @@ protected:
     children_container subwindows;
     void addWindow(char* mainWindow, Window* child);
 };
+
+#endif // MAINWINDOW_H

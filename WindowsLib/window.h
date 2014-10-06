@@ -1,4 +1,6 @@
-#pragma once
+#ifndef WINDOW_H
+#define WINDOW_H
+
 #include <string>
 
 class Window
@@ -7,7 +9,7 @@ public:
     Window();
     Window(int xpos, int ypos, std::string windowName);
     Window(const Window& window);
-	~Window();
+    ~Window();
 
     int getX() const;
     int getY() const;
@@ -25,3 +27,4 @@ protected:
     std::string name;
 };
 
+#endif // WINDOW_H

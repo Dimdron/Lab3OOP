@@ -1,6 +1,5 @@
 #include "window.h"
 
-
 Window::Window()
     : x(0), y(0), name()
 {

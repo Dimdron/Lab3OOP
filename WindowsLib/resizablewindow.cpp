@@ -45,7 +45,7 @@ void ResizableWindow::setHeight(int windowHeight)
     height = windowHeight;
 }
 
-canvas_type ResizableWindow::getCanvas() const
+ResizableWindow::canvas_type ResizableWindow::getCanvas() const
 {
     return canvas_type(width * height);/*
     const int h_ = getHeight();

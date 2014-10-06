@@ -1,4 +1,6 @@
-#pragma once
+#ifndef RESIZABLEWINDOW_H
+#define RESIZABLEWINDOW_H
+
 #include "window.h"
 #include <vector>
 
@@ -11,7 +13,7 @@ public:
     ResizableWindow(int xpos, int ypos, const std::string &windowName,
                     int windowWidth, int windowHeight);
     ResizableWindow(const ResizableWindow &window);
-	~ResizableWindow();
+    ~ResizableWindow();
 
     int getWidth() const;
     int getHeight() const;
@@ -28,3 +30,4 @@ protected:
     int height;
 };
 
+#endif // RESIZABLEWINDOW_H
