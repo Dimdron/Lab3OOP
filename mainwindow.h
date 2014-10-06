@@ -6,7 +6,7 @@
 class MainWindow: public ResizableWindow
 {
 public:
-    typedef std::vector<Window> children_container;
+    typedef std::vector<ResizableWindow*> children_container;
 
     MainWindow();
     MainWindow(int xpos, int ypos, const std::string &windowName,
@@ -17,8 +17,8 @@ public:
     void draw();
     children_container &getChildren();
 
-    MainWindow& operator<<(Window* child);
-    Window& operator[] (int i);
+    MainWindow& operator<<(ResizableWindow *child);
+    ResizableWindow *operator[] (int i);
 
     static const int minWidth = 15;
     static const int minHeight = 8;

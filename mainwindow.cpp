@@ -61,13 +61,13 @@ void MainWindow::addWindow(char* mainWindow, Window* child)
     }
 }
 
-MainWindow& MainWindow::operator <<(Window* child)
+MainWindow& MainWindow::operator <<(ResizableWindow* child)
 {
-    this->subwindows->push_back(*child);
+    subwindows.push_back(child);
     return *this;
 }
 
-Window& MainWindow::operator[] (int i)
+ResizableWindow *MainWindow::operator[] (int i)
 {
-    return subwindows->at(i);
+    return subwindows.at(i);
 }
