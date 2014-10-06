@@ -10,4 +10,4 @@ SOURCES += window.cpp \
 HEADERS += window.h \
     resizablewindow.h
 
-DESTDIR = $$PWD/build
+DESTDIR = ../build
