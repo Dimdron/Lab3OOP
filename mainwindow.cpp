@@ -40,25 +40,27 @@ void MainWindow::draw()
 
 void MainWindow::drawChildWindow(ResizableWindow::canvas_type &canvas, ResizableWindow *child)
 {
-//    char* childCanvas = child->getCanvas();
-//    int const m_h = getHeight(), m_w = getWidth();
-//    int const c_h = child->getHeight(), c_w = child->getWidth();
-//    int const c_x = child->getX(), c_y = child->getY();
-//    int j_end = c_y + c_h < m_h ? c_y + c_h : m_h;
-//    int i_end = c_x + c_w < m_w ? c_x + c_w : m_w;
-//    i_end += m_w * c_y;
-//    int x_tmp = 0, y_tmp = 0;
-//    for (int j = c_y; j < j_end; j++) // height
-//    {
-//        x_tmp = c_w * y_tmp;
-//        for(int i = m_w * j + c_x; i < i_end; i++)
-//        {
-//            *(mainWindow + i) = *(childCanvas + x_tmp);
-//            ++x_tmp;
-//        }
-//        i_end += m_w;
-//        y_tmp++;
-//    }
+    auto childCanvas = child->getCanvas();
+    const int childHeight = child->getHeight();
+    const int childWidth = child->getWidth();
+    const int childX = child->getX();
+    const int childY = child->getY();
+    int i_end = (childX + childWidth) < width ? childX + childWidth : width;
+    int j_end = (childY + childHeight) < height ? childY + childHeight : height;
+    i_end += width * childY;
+    int x_tmp = 0;
+    int y_tmp = 0;
+    for (int j = childY; j < j_end; j++) // height
+    {
+        x_tmp = childWidth * y_tmp;
+        for(int i = width * j + childX; i < i_end; i++)
+        {
+            canvas[i] = childCanvas[x_tmp];
+            ++x_tmp;
+        }
+        i_end += width;
+        ++y_tmp;
+    }
 }
 
 MainWindow& MainWindow::operator <<(ResizableWindow* child)
