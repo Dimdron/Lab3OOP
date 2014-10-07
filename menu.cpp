@@ -10,32 +10,39 @@ Menu::~Menu()
 {
 }
 
-bool Menu::show()
+void Menu::start()
 {
-    window.draw();
-    std::cout<<std::endl;
-    std::cout<<"Choose operation:"<<std::endl;
-    std::cout<<"1. Add the window"<<std::endl;
-    std::cout<<"2. Change the position"<<std::endl;
-    std::cout<<"3. Change the size"<<std::endl;
-    std::cout<<"4. Exit"<<std::endl;
-    std::cout<<"Type the item number: ";
-    int item = 0;
-    std::cin>>item;
-    switch (item) {
-    case 1:
-        addWindow();
-        break;
-    case 2:
-        changePosition();
-        break;
-    case 3:
-        changeSize();
-        break;
-    case 4:
-        return false;
+    bool continueExecution = true;
+    while (continueExecution)
+    {
+        mainWindow.draw();
+        std::cout << std::endl;
+        std::cout << "Choose operation:" << std::endl;
+        std::cout << "1. Add the subwindow" << std::endl;
+        std::cout << "2. Change the window position" << std::endl;
+        std::cout << "3. Change the widow size" << std::endl;
+        std::cout << "4. Exit" << std::endl;
+        std::cout << "Type the item number: ";
+        int item = 0;
+        std::cin >> item;
+        switch (item) {
+        case 1:
+            addWindow();
+            break;
+        case 2:
+            changePosition();
+            break;
+        case 3:
+            changeSize();
+            break;
+        case 4:
+            continueExecution = false;
+            break;
+        default:
+            std::cout << "Can't recognize input! Please, repeat" << std::endl;
+            break;
+        }
     }
-    return true;
 }
 
 void Menu::addWindow()

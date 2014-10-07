@@ -11,14 +11,10 @@ void testCase1()
     delete mainWindow;
 }
 
-//    Window *w1 = new Window(5, 5);
-//    w1->setX(3);
-//    w1->setY(4);
-//    *myWindow<<w1;
-//    bool continueFlag = true;
-//    Menu* menu = new Menu(myWindow);
 int main()
 {
 //    testCase1();
+    Menu menu;
+    menu.start();
     return 0;
 }

@@ -8,6 +8,7 @@ class Menu
 public:
     Menu();
     ~Menu();
+    void start();
 
 private:
     MainWindow mainWindow;
