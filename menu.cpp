@@ -82,18 +82,18 @@ void Menu::changeSize() {
 
 ResizableWindow* Menu::findWindow(const std::string &name)
 {
-//    if (name.empty())
-//        return static_cast<ResizableWindow*>(window);
-//    else
-//    {
-//        auto children = window.getChildren();
-//        for (auto childWindow = children.begin(); childWindow != children.end(); ++childWindow)
-//        {
-//            if ((*childWindow)->getName() == name)
-//                return *childWindow;
-//        }
-//        return nullptr;
-//    }
+    if (name.empty())
+        return static_cast<ResizableWindow*>(&mainWindow);
+    else
+    {
+        auto children = mainWindow.getChildren();
+        for (auto childWindow = children.cbegin(); childWindow != children.cend(); ++childWindow)
+        {
+            if ((*childWindow)->getName() == name)
+                return *childWindow;
+        }
+        return nullptr;
+    }
 }
 
 ResizableWindow* Menu::chooseWindow()
