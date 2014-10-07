@@ -7,7 +7,7 @@ class Menu
 {
 public:
     Menu(MainWindow &newWindow);
-    bool show();
+    ~Menu();
 
 private:
     MainWindow window;

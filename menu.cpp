@@ -6,6 +6,10 @@ Menu::Menu(MainWindow &newWindow)
 {
 }
 
+Menu::~Menu()
+{
+}
+
 bool Menu::show()
 {
     window.draw();
