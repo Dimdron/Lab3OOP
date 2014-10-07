@@ -1,8 +1,15 @@
 #include "menu.h"
 
-int main()
+void testCase1()
 {
-//    MainWindow *myWindow = new MainWindow(35, 20);
+    MainWindow *mainWindow = new MainWindow(0, 0, "main", 35, 20);
+    ResizableWindow *w1 = new ResizableWindow(2, 2, "w1", 5, 5);
+    w1->setX(3);
+    w1->setY(4);
+    *mainWindow << w1;
+    mainWindow->draw();
+    delete mainWindow;
+}
 
 //    Window *w1 = new Window(5, 5);
 //    w1->setX(3);
@@ -10,7 +17,8 @@ int main()
 //    *myWindow<<w1;
 //    bool continueFlag = true;
 //    Menu* menu = new Menu(myWindow);
-//    while(continueFlag)
-//        continueFlag = menu->show();
+int main()
+{
+//    testCase1();
     return 0;
 }
