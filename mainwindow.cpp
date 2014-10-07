@@ -38,6 +38,11 @@ void MainWindow::draw()
     }
 }
 
+const MainWindow::children_container &MainWindow::getChildren() const
+{
+    return subwindows;
+}
+
 void MainWindow::drawChildWindow(ResizableWindow::canvas_type &canvas, ResizableWindow *child)
 {
     auto childCanvas = child->getCanvas();

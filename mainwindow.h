@@ -15,7 +15,7 @@ public:
     ~MainWindow();
 
     void draw();
-    children_container &getChildren();
+    const children_container &getChildren() const;
 
     MainWindow& operator<<(ResizableWindow *child);
     ResizableWindow *operator[] (int i);
