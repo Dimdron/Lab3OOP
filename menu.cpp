@@ -1,8 +1,8 @@
 #include "menu.h"
 #include <iostream>
 
-Menu::Menu(MainWindow &newWindow)
-    : window(newWindow)
+Menu::Menu()
+    : mainWindow(0, 0, "Main", MainWindow::minWidth, MainWindow::minHeight)
 {
 }
 
@@ -51,7 +51,7 @@ void Menu::addWindow()
     int h = 0, w = 0;
     std::cin >> w >> h;
     ResizableWindow* newWindow = new ResizableWindow(x, y, name, w, h);
-    window << newWindow;
+    mainWindow << newWindow;
     std::cout<<"Successful adding"<<std::endl;
 }
 

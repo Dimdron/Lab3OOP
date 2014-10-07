@@ -6,11 +6,11 @@
 class Menu
 {
 public:
-    Menu(MainWindow &newWindow);
+    Menu();
     ~Menu();
 
 private:
-    MainWindow window;
+    MainWindow mainWindow;
 
     void mainMenu();
     void changeSize();
