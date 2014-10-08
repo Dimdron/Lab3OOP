@@ -133,7 +133,7 @@ const std::string &Menu::getString()
 
 unsigned int Menu::recognizeInteger(const std::string &input)
 {
-    unsigned int item;
+    unsigned int item = 0;
     try
     {
         item  = std::stoi(input);
