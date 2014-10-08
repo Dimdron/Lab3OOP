@@ -44,7 +44,7 @@ void Menu::start()
             continueExecution = false;
             break;
         default:
-            std::cout << "Can't recognize input! Please, repeat" << std::endl;
+            std::cout << "Unknown menu item! Please, repeat" << std::endl;
             break;
         }
     }
