@@ -118,3 +118,24 @@ ResizableWindow* Menu::chooseWindow()
     }
     return findWindow(name);
 }
+
+const std::string &Menu::getString()
+{
+    std::string userInput;
+    std::cin >> userInput;
+    return userInput;
+}
+
+unsigned int Menu::recognizeInteger(const std::string &input)
+{
+    unsigned int item;
+    try
+    {
+        item  = std::stoi(input);
+    }
+    catch(std::exception &)
+    {
+        std::cout << "Can't recognize input. Please, repeat" << std::endl;
+    }
+    return item;
+}
