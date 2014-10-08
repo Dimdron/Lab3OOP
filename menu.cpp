@@ -23,8 +23,9 @@ void Menu::start()
         std::cout << "3. Change the widow size" << std::endl;
         std::cout << "4. Exit" << std::endl;
         std::cout << "Type the item number: ";
-        int item = 0;
-        std::cin >> item;
+
+        unsigned int item = recognizeInteger(getString());
+
         switch (item) {
         case 1:
             addWindow();
