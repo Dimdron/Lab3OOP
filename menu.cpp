@@ -72,7 +72,8 @@ void Menu::changePosition()
 }
 
 
-void Menu::changeSize() {
+void Menu::changeSize()
+{
     ResizableWindow* selectedWindow = chooseWindow();
     std::cout<<"Enter the dw and dh: ";
     int dw, dh;
@@ -100,17 +101,17 @@ ResizableWindow* Menu::chooseWindow()
 {
     std::string name;
     int item;
-    std::cout<<"Choose item:"<<std::endl;
-    std::cout<<"1. Main window"<<std::endl;
-    std::cout<<"2. Find by name"<<std::endl;
-    std::cout<<"Item: ";
-    std::cin>>item;
+    std::cout << "Choose item:" << std::endl;
+    std::cout << "1. Main window" << std::endl;
+    std::cout << "2. Find by name" << std::endl;
+    std::cout << "Item: ";
+    std::cin >> item;
     switch (item) {
     case 1:
         break;
     case 2:
-        std::cout<<"Name: ";
-        std::cin>>name;
+        std::cout << "Name: ";
+        std::cin >> name;
         break;
     default:
         return nullptr;
