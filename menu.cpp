@@ -84,9 +84,11 @@ void Menu::changePosition()
 void Menu::changeSize()
 {
     ResizableWindow* selectedWindow = chooseWindow();
-    std::cout << "Enter the dw and dh: ";
-    int dw, dh;
-    std::cin >> dw >> dh;
+    std::cout << "Enter the dw and dh (format: dw<new line>dh): ";
+
+    unsigned int dw = recognizeInteger(getString());
+    unsigned int dh = recognizeInteger(getString());
+
     selectedWindow->changeSize(dw, dh);
 }
 
