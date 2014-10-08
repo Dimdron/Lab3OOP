@@ -72,9 +72,11 @@ void Menu::addWindow()
 void Menu::changePosition()
 {
     ResizableWindow* selectedWindow = chooseWindow();
-    std::cout << "Enter the dx and dy: ";
-    int dx = 0, dy = 0;
-    std::cin >> dx >> dy;
+    std::cout << "Enter the dx and dy (format: dx<new line>dy): ";
+
+    unsigned int dx = recognizeInteger(getString());
+    unsigned int dy = recognizeInteger(getString());
+
     selectedWindow->move(dx, dy);
 }
 
