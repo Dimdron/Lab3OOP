@@ -18,25 +18,29 @@ void Menu::start()
         mainWindow.draw();
         std::cout << std::endl;
         std::cout << "Choose operation:" << std::endl;
-        std::cout << "1. Add the subwindow" << std::endl;
-        std::cout << "2. Change the window position" << std::endl;
-        std::cout << "3. Change the widow size" << std::endl;
-        std::cout << "4. Exit" << std::endl;
+        std::cout << "1. Choose window" << std::endl;
+        std::cout << "2. Add the subwindow" << std::endl;
+        std::cout << "3. Change the window position" << std::endl;
+        std::cout << "4. Change the widow size" << std::endl;
+        std::cout << "5. Exit" << std::endl;
         std::cout << "Type the item number: ";
 
         unsigned int item = recognizeInteger(getString());
 
         switch (item) {
         case 1:
-            addWindow();
+            chooseWindow();
             break;
         case 2:
-            changePosition();
+            addWindow();
             break;
         case 3:
-            changeSize();
+            changePosition();
             break;
         case 4:
+            changeSize();
+            break;
+        case 5:
             continueExecution = false;
             break;
         default:
