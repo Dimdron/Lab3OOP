@@ -54,15 +54,17 @@ void Menu::addWindow()
 {
     std::cout << "Adding subwindow " << std::endl;
     std::cout << "Enter name: " << std::endl;
-    std::string name;
-    std::cin >> name;
-    std::cout << "Enter position (format: x y):" << std::endl;
-    int x = 0, y = 0;
-    std::cin >> x >> y;
-    std::cout << "Enter size (format: w h):" << std::endl;
-    int h = 0, w = 0;
-    std::cin >> w >> h;
-    ResizableWindow* newWindow = new ResizableWindow(x, y, name, w, h);
+    const std::string name = getString();
+
+    std::cout << "Enter position (format: x<new line>y):" << std::endl;
+    unsigned int x = recognizeInteger(getString());
+    unsigned int y = recognizeInteger(getString());
+
+    std::cout << "Enter size (format: w<new line>h):" << std::endl;
+    unsigned int width = recognizeInteger(getString());
+    unsigned int height = recognizeInteger(getString());
+
+    ResizableWindow* newWindow = new ResizableWindow(x, y, name, width, height);
     mainWindow << newWindow;
     std::cout << "Successful adding" << std::endl;
 }
