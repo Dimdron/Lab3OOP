@@ -110,19 +110,19 @@ ResizableWindow* Menu::findWindow(const std::string &name)
 
 ResizableWindow* Menu::chooseWindow()
 {
-    std::string name;
-    int item;
     std::cout << "Choose item:" << std::endl;
     std::cout << "1. Main window" << std::endl;
     std::cout << "2. Find by name" << std::endl;
     std::cout << "Item: ";
-    std::cin >> item;
+
+    unsigned int item = recognizeInteger(getString());
+    std::string name;
     switch (item) {
     case 1:
         break;
     case 2:
         std::cout << "Name: ";
-        std::cin >> name;
+        name = getString();
         break;
     default:
         return nullptr;
