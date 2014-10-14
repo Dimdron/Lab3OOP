@@ -44,17 +44,12 @@ CanvasWrapper::~CanvasWrapper()
 {
 }
 
-void CanvasWrapper::operator=(Canvas::const_reference value)
+void CanvasWrapper::operator=(Canvas::value_type value)
 {
-    replaceValue(&value);
+    (*canvas)[(canvas->getWidth() * row) + column] = value;
 }
 
-void CanvasWrapper::operator=(Canvas::const_pointer value)
+Canvas::value_type CanvasWrapper::operator*()
 {
-    replaceValue(value);
-}
-
-void CanvasWrapper::replaceValue(Canvas::const_pointer value)
-{
-    canvas[(canvas->getWidth() * row) + column] = *value;
+    return canvas->at((canvas->getWidth() * row) + column);
 }

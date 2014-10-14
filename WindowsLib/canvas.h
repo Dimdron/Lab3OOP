@@ -27,15 +27,13 @@ public:
     CanvasWrapper(Canvas *canvasPtr, Canvas::size_type i, Canvas::size_type j);
     ~CanvasWrapper();
 
-    void operator=(Canvas::const_reference value);
-    void operator=(Canvas::const_pointer value);
+    void operator=(Canvas::value_type value);
+    Canvas::value_type operator*();
 
 private:
     Canvas *canvas;
     Canvas::size_type row;
     Canvas::size_type column;
-
-    void replaceValue(Canvas::const_pointer value);
 };
 
 #endif // CANVAS_H
