@@ -130,7 +130,7 @@ ResizableWindow* Menu::chooseWindow()
     return findWindow(name);
 }
 
-const std::string &Menu::getString()
+const std::string Menu::getString()
 {
     std::string userInput;
     std::cin >> userInput;

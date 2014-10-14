@@ -21,7 +21,7 @@ private:
     ResizableWindow *findWindow(const std::string &name);
     ResizableWindow *chooseWindow();
 
-    const std::string &getString();
+    const std::string getString();
     unsigned int recognizeInteger(const std::string &input);
 };
 
