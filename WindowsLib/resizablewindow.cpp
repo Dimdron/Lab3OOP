@@ -45,9 +45,9 @@ void ResizableWindow::setHeight(int windowHeight)
     height = windowHeight;
 }
 
-ResizableWindow::canvas_type ResizableWindow::getCanvas() const
+Canvas ResizableWindow::getCanvas() const
 {
-    canvas_type canvas(width * height);
+    Canvas values(width * height);
 
     for (int h = 0; h < height; ++h)
     {
@@ -55,21 +55,21 @@ ResizableWindow::canvas_type ResizableWindow::getCanvas() const
         {
             if (h == 0 || h == height - 1)
             {
-                canvas[(h * width) + w] = '*';
+                values[(h * width) + w] = '*';
             }
             else
             {
                 if (w == 0 || w == width - 1)
                 {
-                    canvas[(h * width) + w] = '*';
+                    values[(h * width) + w] = '*';
                 }
                 else
                 {
-                    canvas[(h * width) + w] = ' ';
+                    values[(h * width) + w] = ' ';
                 }
             }
         }
     }
 
-    return canvas;
+    return values;
 }

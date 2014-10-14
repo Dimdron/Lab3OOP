@@ -2,13 +2,11 @@
 #define RESIZABLEWINDOW_H
 
 #include "window.h"
-#include <vector>
+#include "canvas.h"
 
 class ResizableWindow : public Window
 {
 public:
-    typedef std::vector<char> canvas_type;
-
     ResizableWindow();
     ResizableWindow(int xpos, int ypos, const std::string &windowName,
                     int windowWidth, int windowHeight);
@@ -23,7 +21,7 @@ public:
 
     void changeSize(int dw, int dh);
 
-    canvas_type getCanvas() const;
+    Canvas getCanvas() const;
 
 protected:
     int width;

@@ -25,15 +25,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::draw()
 {
-    auto canvas = getCanvas();
+    Canvas values = getCanvas();
 
     for(auto i = subwindows.begin(); i != subwindows.end(); ++i)
-        drawChildWindow(canvas, *i);
+        drawChildWindow(values, *i);
 
     for (int h = 0; h  < height; ++h)
     {
         for (int w = 0; w < width; ++w)
-            putchar(canvas[(h * width) + w]);
+            putchar(values[(h * width) + w]);
         putchar('\n');
     }
 }
@@ -43,7 +43,7 @@ const MainWindow::children_container &MainWindow::getChildren() const
     return subwindows;
 }
 
-void MainWindow::drawChildWindow(ResizableWindow::canvas_type &canvas, ResizableWindow *child)
+void MainWindow::drawChildWindow(Canvas &values, ResizableWindow *child)
 {
     auto childCanvas = child->getCanvas();
     const int childHeight = child->getHeight();
@@ -60,7 +60,7 @@ void MainWindow::drawChildWindow(ResizableWindow::canvas_type &canvas, Resizable
         x_tmp = childWidth * y_tmp;
         for(int i = width * j + childX; i < i_end; i++)
         {
-            canvas[i] = childCanvas[x_tmp];
+            values[i] = childCanvas[x_tmp];
             ++x_tmp;
         }
         i_end += width;
