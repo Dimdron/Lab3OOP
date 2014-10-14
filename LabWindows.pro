@@ -16,6 +16,7 @@ SOURCES += \
 
 HEADERS += \
     menu.h \
-    mainwindow.h
+    mainwindow.h \
+    mainwindowproxy.h
 
 LIBS += -L$$PWD/build -lWindowsLib
