@@ -47,7 +47,7 @@ void ResizableWindow::setHeight(int windowHeight)
 
 Canvas ResizableWindow::getCanvas() const
 {
-    Canvas values(width * height);
+    Canvas values(width, height);
 
     for (int h = 0; h < height; ++h)
     {
