@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "canvas.h"
+#include "mainwindowproxy.h"
 #include <iostream>
 
 void testCase1()
@@ -28,10 +29,20 @@ void testCase2()
     }
 }
 
+void testCase3()
+{
+    MainWindow mainWindow(0, 0, "window", 10, 5);
+    MainWindowProxy1 proxy1(&mainWindow);
+    MainWindowProxy2 proxy2(&proxy1);
+
+    proxy2->draw();
+}
+
 int main()
 {
 //    testCase1();
-    testCase2();
+//    testCase2();
+    testCase3();
 //    Menu menu;
 //    menu.start();
     return 0;
