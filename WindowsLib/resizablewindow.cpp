@@ -55,17 +55,17 @@ Canvas ResizableWindow::getCanvas() const
         {
             if (h == 0 || h == height - 1)
             {
-                values[(h * width) + w] = '*';
+                values(h, w) = '*';
             }
             else
             {
                 if (w == 0 || w == width - 1)
                 {
-                    values[(h * width) + w] = '*';
+                    values(h, w) = '*';
                 }
                 else
                 {
-                    values[(h * width) + w] = ' ';
+                    values(h, w) = ' ';
                 }
             }
         }
